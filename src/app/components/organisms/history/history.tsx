@@ -30,7 +30,7 @@ const histories = [
 
 export const History: FC = () => {
     return (
-        <Box mb={8}>
+        <Box mb={8} id="history" sx={{scrollMarginTop: '100px'}}>
             <HomeTitle text='History' />
             <Box mx={4} p={4} border='solid 1px #dcdcdc' sx={{ borderRadius: '20px' }}>
                 {histories.map((history, index) => {

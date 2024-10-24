@@ -3,7 +3,7 @@ import { HomeTitle } from "../../molecules/homeTitle/homeTitle"
 
 export const About = () => {
     return (
-        <Box mb={8}>
+        <Box mb={8} id="about" sx={{scrollMarginTop: '100px'}}>
             <HomeTitle text="About" />
             <Box 
                 display="flex"  
