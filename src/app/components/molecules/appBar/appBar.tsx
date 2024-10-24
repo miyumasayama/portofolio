@@ -5,12 +5,9 @@ import {
   Toolbar,
   Typography,
   Box,
-  Button,
 } from '@mui/material';
 import { FC, } from 'react';
 import { Navigation } from '../footer/fragments/navigation';
-
-const pages = ['About', 'Skills', 'History', 'Products'];
 
 export const AppBar: FC = () => {
   return (
