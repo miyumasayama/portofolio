@@ -1,5 +1,5 @@
 import { FC } from "react"
-import { Box, CardActionArea, CardContent, CardHeader, CardMedia, Divider, Card as MuiCard, Typography } from "@mui/material"
+import { Box, CardActionArea, Card as MuiCard, Typography } from "@mui/material"
 import Image from "next/image"
 
 type Props = {
