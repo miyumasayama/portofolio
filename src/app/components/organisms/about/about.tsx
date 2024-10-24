@@ -3,7 +3,7 @@ import { HomeTitle } from "../../molecules/homeTitle/homeTitle"
 
 export const About = () => {
     return (
-        <Box mb={4}>
+        <Box mb={8}>
             <HomeTitle text="About" />
             <Box 
                 display="flex"  
