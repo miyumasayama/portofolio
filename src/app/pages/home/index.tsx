@@ -1,4 +1,5 @@
 import { AppBar } from "@/app/components/molecules/appBar/appBar";
+import { Footer } from "@/app/components/molecules/footer/footer";
 import { About } from "@/app/components/organisms/about/about";
 import { CherryBlossoms } from "@/app/components/organisms/cherryBlossoms/cherryBlossoms";
 import { History } from "@/app/components/organisms/history/history";
@@ -13,6 +14,7 @@ export const Home: FC = () => {
             <About />
             <Skills />
             <History />
+            <Footer />
         </>
     )
 }
