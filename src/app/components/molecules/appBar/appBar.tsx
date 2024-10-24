@@ -1,3 +1,4 @@
+import { navigations } from '@/app/utils/home';
 import {
   AppBar as MuiAppBar,
   Divider,
@@ -7,6 +8,7 @@ import {
   Button,
 } from '@mui/material';
 import { FC, } from 'react';
+import { Navigation } from '../footer/fragments/navigation';
 
 const pages = ['About', 'Skills', 'History', 'Products'];
 
@@ -43,15 +45,11 @@ export const AppBar: FC = () => {
         >
           Miyu's Portfolio
         </Typography>
-        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-          {pages.map((page) => (
-            <Button
-              key={page}
-              sx={{ my: 2, color: 'white', display: 'block' }}
-            >
-              {page}
-            </Button>
-          ))}
+        <Box sx={{display: "flex", gap: 2}}>
+         {navigations.map((navigation) => {
+            const {href, name} = navigation
+            return (<Navigation href={href} title={name} />)
+          })}
         </Box>
       </Toolbar>
       <Divider />
