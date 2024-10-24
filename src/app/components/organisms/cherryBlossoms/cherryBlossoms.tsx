@@ -5,7 +5,7 @@ import { Canvas } from "../../molecules/canvas/canvas"
 export const CherryBlossoms : FC = () => {
     return (
         <Box  
-            height='100vh' 
+            height="100vh"
             display='flex' 
             alignItems='center' 
             justifyContent="center"

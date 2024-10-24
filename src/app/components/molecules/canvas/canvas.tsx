@@ -111,7 +111,7 @@ export const Canvas: FC = () => {
     return (
         <canvas 
             ref={ref} 
-            height='calc(100vh - 60px)'
+            height='calc(100vh - 100px)'
             width='100vw'
         />
     )
