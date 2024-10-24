@@ -1,6 +1,5 @@
-import { AppBar } from "@/app/components/appBar/appBar";
-import { CherryBlossoms } from "@/app/components/cherryBlossoms/cherryBlossoms";
-import { Box } from "@mui/material";
+import { AppBar } from "@/app/components/molecules/appBar/appBar";
+import { CherryBlossoms } from "@/app/components/organisms/cherryBlossoms/cherryBlossoms";
 import { FC } from "react";
 
 export const Home: FC = () => {
