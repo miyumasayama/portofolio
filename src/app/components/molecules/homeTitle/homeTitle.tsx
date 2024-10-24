@@ -7,7 +7,7 @@ type Props = {
 
 export const HomeTitle: FC<Props> = ({ text }) => {
     return (
-        <Typography fontSize={40} margin={4} color="#eebbcb">
+        <Typography fontSize={40} margin={4} color="#c099a0">
             {text}
         </Typography>
     )
