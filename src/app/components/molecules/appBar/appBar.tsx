@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 import { FC, } from 'react';
 
-const pages = ['About', 'Skills', 'Experience', 'Products'];
+const pages = ['About', 'Skills', 'History', 'Products'];
 
 export const AppBar: FC = () => {
   return (
@@ -29,30 +29,30 @@ export const AppBar: FC = () => {
           fontFamily: 'monospace',
         }}
       >
-          <Typography
-            variant="h6"
-            sx={{
-              fontFamily: 'monospace',
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            Miyu's Portfolio
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
+        <Typography
+          variant="h6"
+          sx={{
+            fontFamily: 'monospace',
+            mr: 2,
+            display: { xs: 'none', md: 'flex' },
+            fontWeight: 700,
+            letterSpacing: '.3rem',
+            color: 'inherit',
+            textDecoration: 'none',
+          }}
+        >
+          Miyu's Portfolio
+        </Typography>
+        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          {pages.map((page) => (
+            <Button
+              key={page}
+              sx={{ my: 2, color: 'white', display: 'block' }}
+            >
+              {page}
+            </Button>
+          ))}
+        </Box>
       </Toolbar>
       <Divider />
     </MuiAppBar>
