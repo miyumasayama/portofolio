@@ -30,7 +30,7 @@ export const Canvas: FC = () => {
     const speedMin = 0.5;
     const wind = 100;
     const img = new Image();
-    img.src = `${process.env.NEXT_PUBLIC_URL}//leaf.png`;
+    img.src = `${process.env.NEXT_PUBLIC_URL}/leaf.png`;
     
     if (!canvas) return
     const context = canvas.getContext('2d') 

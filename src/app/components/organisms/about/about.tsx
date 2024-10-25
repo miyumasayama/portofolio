@@ -24,7 +24,7 @@ export const About = () => {
                         overflow: 'hidden',  
                     }}
                     alt="my profile picture"
-                    src={`${process.env.NEXT_PUBLIC_URL}//miyu.jpg`}
+                    src={`${process.env.NEXT_PUBLIC_URL}/miyu.jpg`}
                     />
                     <Box width='70%' display="flex" flexDirection="column" gap={1}>
                         <Typography fontSize={24} color="gray" >
