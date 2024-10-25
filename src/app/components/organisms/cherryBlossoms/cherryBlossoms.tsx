@@ -38,7 +38,7 @@ export const CherryBlossoms : FC = () => {
             >
                 <Canvas />
             </Box>
-            <Box  position="absolute" zIndex={9999}>
+            <Box  position="absolute">
                <Welcome />
             </Box>
         </Box>
