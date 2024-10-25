@@ -12,7 +12,7 @@ export const navigations = [
     name: "History"
   },
   {
-    href: '',
+    href: '#products',
     name: "Products"
   }
 ]
