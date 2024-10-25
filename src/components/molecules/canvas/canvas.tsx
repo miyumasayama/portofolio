@@ -30,7 +30,7 @@ export const Canvas: FC = () => {
     const speedMin = 0.5;
     const wind = 100;
     const img = new Image();
-    img.src = `${process.env.NEXT_PUBLIC_URL}//leaf.png`;
+    img.src = `${process.env.NEXT_PUBLIC_URL}/leaf.png`;
     
     if (!canvas) return
     const context = canvas.getContext('2d') 
@@ -66,7 +66,6 @@ export const Canvas: FC = () => {
         for (idx = 0; idx < imgCnt; idx++) {
           aryImg[idx].posx += wind / aryImg[idx].sizew;
           aryImg[idx].posy += aryImg[idx].speedy;
-          (idx % 2) ? aryImg[idx].angle += 1 : aryImg[idx].angle -= 1;
           cos = Math.cos(aryImg[idx].angle * rad);
           sin = Math.sin(aryImg[idx].angle * rad);
           context.setTransform(cos, sin, sin, cos, aryImg[idx].posx, aryImg[idx].posy);

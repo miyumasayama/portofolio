@@ -9,8 +9,10 @@ export const About = () => {
                 display="flex"  
                 justifyContent="space-between"
                 alignItems="center" 
+                flexDirection={{xs: "column", sm: "column", md: 'row'}}
+                gap={1}
                 my={2}
-                mx={8} >
+                mx={{xs: 0, sm:0, md: 8}} >
                 <Box
                     component="img"
                     width="30%"
@@ -22,7 +24,7 @@ export const About = () => {
                         overflow: 'hidden',  
                     }}
                     alt="my profile picture"
-                    src={`${process.env.NEXT_PUBLIC_URL}//miyu.jpg`}
+                    src={`${process.env.NEXT_PUBLIC_URL}/miyu.jpg`}
                     />
                     <Box width='70%' display="flex" flexDirection="column" gap={1}>
                         <Typography fontSize={24} color="gray" >
