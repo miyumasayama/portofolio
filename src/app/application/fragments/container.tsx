@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { Routes } from '../../routes'
+import { Home } from '@/app/pages';
 
 export const Container: FC = () => {
-  return <Routes />
+  return <Home />
 };
