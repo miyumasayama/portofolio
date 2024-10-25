@@ -1,7 +1,7 @@
 import { Box,  Link, Typography } from "@mui/material";
 import { FC } from "react";
 import { GitHub, Instagram } from "@mui/icons-material";
-import { navigations } from "@/app/utils/home";
+import { navigations } from "@/utils/home";
 import { Navigation } from "./fragments/navigation";
 
 const contacts = [

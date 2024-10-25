@@ -1,4 +1,4 @@
-import { navigations } from "@/app/utils/home"
+import { navigations } from "@/utils/home"
 import { Box, List, ListItem, ListItemText, Popover } from "@mui/material"
 import { FC } from "react"
 

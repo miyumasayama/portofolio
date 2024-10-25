@@ -1,4 +1,4 @@
-import { navigations } from '@/app/utils/home';
+import { navigations } from '@/utils/home';
 import {
   AppBar as MuiAppBar,
   Divider,
@@ -10,7 +10,7 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import { FC, useState, } from 'react';
 import { Navigation } from '../footer/fragments/navigation';
-import { MenuDrawer } from './fragments/menuDrawer';
+import { MenuDrawer } from '@/app/components/molecules/appBar/fragments/menuDrawer';
 
 export const AppBar: FC = () => {
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
