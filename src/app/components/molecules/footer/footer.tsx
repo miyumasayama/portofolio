@@ -40,7 +40,7 @@ export const Footer: FC = () => {
         <Box ml={2} display="flex" flexDirection="column">
           {navigations.map((navigation) => {
             const {href, name} = navigation
-            return (<Navigation href={href} title={name} />)
+            return (<Navigation key={name} href={href} title={name} />)
           })}
         </Box>
       </Box>
@@ -59,6 +59,7 @@ export const Footer: FC = () => {
           return (
             <Link 
               href={url} 
+              key={name}
               target="_blank" 
               rel="noopener" 
               sx={{

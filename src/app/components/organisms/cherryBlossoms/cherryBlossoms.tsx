@@ -1,8 +1,15 @@
 import { Box } from "@mui/material"
-import { FC } from "react"
+import { FC, useEffect } from "react"
 import { Canvas } from "../../molecules/canvas/canvas"
+import Vivus from "vivus";
+import { Welcome } from "./fragments/welcome";
 
 export const CherryBlossoms : FC = () => {
+
+    useEffect(() => {
+        new Vivus('title', {duration: 200, type: "oneByOne"});
+    },[])
+
     return (
         <Box  
             height="100vh"
@@ -20,9 +27,7 @@ export const CherryBlossoms : FC = () => {
                     backgroundSize: 'cover', 
                     backgroundPosition: 'center', 
                     backgroundRepeat: 'no-repeat'
-                }}>
-                <Canvas />
-             </Box> 
+                }} />
              <Box
                 position="absolute"
                 top={0}
@@ -32,6 +37,9 @@ export const CherryBlossoms : FC = () => {
                 zIndex={1}
             >
                 <Canvas />
+            </Box>
+            <Box  position="absolute" zIndex={9999}>
+               <Welcome />
             </Box>
         </Box>
     )

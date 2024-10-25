@@ -45,7 +45,7 @@ export const AppBar: FC = () => {
         <Box sx={{display: "flex", gap: 2}}>
          {navigations.map((navigation) => {
             const {href, name} = navigation
-            return (<Navigation href={href} title={name} />)
+            return (<Navigation key={name} href={href} title={name} />)
           })}
         </Box>
       </Toolbar>
