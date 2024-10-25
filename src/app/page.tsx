@@ -1,5 +1,5 @@
 'use client'
-import { AppBar } from "@/components/molecules/appBar/appBar";
+import { AppBar } from "../components/molecules/appBar/appBar";
 import { CherryBlossoms } from "../components/organisms/cherryBlossoms/cherryBlossoms";
 import { About } from "../components/organisms/about/about";
 import { Skills } from "../components/organisms/skills/skills";
