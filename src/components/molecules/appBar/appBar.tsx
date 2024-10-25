@@ -1,4 +1,4 @@
-import { navigations } from '@/app/utils/home';
+import { navigations } from '@/utils/home';
 import {
   AppBar as MuiAppBar,
   Divider,
