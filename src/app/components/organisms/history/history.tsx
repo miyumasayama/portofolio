@@ -51,7 +51,7 @@ export const History: FC = () => {
                     const { title, subtitle, date, description, icon } = history
                     const isLast = index === histories.length -1
                     return (
-                        <Box display='flex' gap={1} flexDirection='column' mb={isLast ? 0 : 3}>
+                        <Box key={title} display='flex' gap={1} flexDirection='column' mb={isLast ? 0 : 3}>
                             <Box display='flex' alignItems='center' gap={1}>
                             {icon}
                                 <Typography fontSize={24} color=''>
@@ -67,7 +67,7 @@ export const History: FC = () => {
                             <Box>
                                 {description.map((text) => {
                                     return (
-                                        <Box display='flex'>
+                                        <Box display='flex' key={text}>
                                             <Typography>
                                                 ・
                                             </Typography>

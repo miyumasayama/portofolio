@@ -41,7 +41,6 @@ export const About = () => {
                         <Typography>
                             Qualification : Fundamental Information Technology Engineer Examination, AWS Certified Solutions Architect, TOEIC 950
                         </Typography>
-         
                     </Box>
                 </Box>
         </Box>
