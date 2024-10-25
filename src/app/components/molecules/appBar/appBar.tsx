@@ -57,7 +57,7 @@ export const AppBar: FC = () => {
             textDecoration: 'none',
           }}
         >
-          Miyu's Portfolio
+          {`Miyu's Portfolio`}
         </Typography>
             <IconButton
               color="inherit"

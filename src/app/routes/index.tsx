@@ -1,4 +1,4 @@
-import { FC, useEffect} from 'react';
+import { FC} from 'react';
 import {
   Route,
   BrowserRouter,
@@ -18,3 +18,4 @@ export const Routes: FC = () => {
       </>
   );
 };
+

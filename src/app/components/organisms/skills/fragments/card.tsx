@@ -5,10 +5,9 @@ import Image from "next/image"
 type Props = {
     name: string,
     image?: string,
-    description: string,
 }
 
-export const Card: FC<Props> = ({name, image, description,}) => {
+export const Card: FC<Props> = ({name, image}) => {
     return (
         <MuiCard sx={{cursor: 'none', pointerEvents: 'none'}} elevation={4}>
             <CardActionArea sx={{display: "flex", flexDirection: 'column', alignItems: "center", padding:1, }}>

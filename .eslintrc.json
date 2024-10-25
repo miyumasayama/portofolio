@@ -3,42 +3,5 @@
     "next/core-web-vitals",
     "next/typescript",
     "plugin:storybook/recommended"
-  ],
-  "rules": {
-    // see: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/README.md
-    "react/function-component-definition": [
-      "error",
-      { "namedComponents": "arrow-function" },
-    ],
-    "react/jsx-boolean-value": "error",
-    "react/jsx-curly-brace-presence": "error",
-    "react/jsx-pascal-case": "error",
-    "react/self-closing-comp": "error",
-
-    // see: https://reactjs.org/docs/hooks-rules.html#eslint-plugin
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-
-    // see: https://typescript-eslint.io/rules/
-    "@typescript-eslint/consistent-type-definitions": ["warn", "type"],
-    // "@typescript-eslint/no-misused-promises": [
-    //   "error",
-    //   { checksVoidReturn: { arguments: false, attributes: false } },
-    // ],
-
-    // see: https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/
-    "eslint-comments/require-description": "error",
-    "eslint-comments/disable-enable-pair": ["error", { "allowWholeFile": true }],
-
-    // see: https://github.com/import-js/eslint-plugin-import/blob/main/README.md
-    "import/no-default-export": "error",
-  },
-  "ignorePatterns": [
-    ".eslintrc.js",
-    ".eslintrc.v2.js",
-    // auto generated files
-    "src/types/api.ts",
-    // design-system
-    "src/styles/design-system/",
-  ],
+  ]
 }

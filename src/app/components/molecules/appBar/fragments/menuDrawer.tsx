@@ -1,5 +1,5 @@
 import { navigations } from "@/app/utils/home"
-import { Box, Drawer, List, ListItem, ListItemText, Popover } from "@mui/material"
+import { Box, List, ListItem, ListItemText, Popover } from "@mui/material"
 import { FC } from "react"
 
 type Props = {
