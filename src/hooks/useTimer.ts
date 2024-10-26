@@ -47,7 +47,7 @@ export const useTimer = (handleIsTimeUp: () => void) => {
         };
       }
     });
-  }, []);
+  }, [handleTimeUp]);
 
   useEffect(() => {
     if (!isTimerOn) return;

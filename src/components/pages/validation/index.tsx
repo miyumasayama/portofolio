@@ -13,7 +13,7 @@ export const Validation: FC = () => {
   const { time, reset, isTimerOn, handleStartTimer } = useTimer(() =>
     setIsTimeUpOpen(true)
   );
-  const { regExps, numOfQuestions, getQuestion } = useValidationQuiz();
+  const { regExps, getQuestion } = useValidationQuiz();
   const { text, handleChange } = useValidate(regExps);
   return (
     <>

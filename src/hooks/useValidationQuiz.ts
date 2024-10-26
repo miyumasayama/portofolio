@@ -5,8 +5,9 @@ import {
 import { RegExp } from "@/types/validation";
 import { useState } from "react";
 
+// validationQuizのセットアップ
+
 export const useValidationQuiz = () => {
-  const [numOfQuestions, setNumOfQuestions] = useState(0);
   const [regExps, setRegExps] = useState<RegExp[]>([]);
 
   const getQuestion = () => {
@@ -17,20 +18,18 @@ export const useValidationQuiz = () => {
     const selectedNumerOfCharacters =
       numberOfCharacters[numberOfCharacterIndex];
 
-    // 条件をランダムで選択
-    const kindsOfCharactersCount = Math.floor(
-      Math.random() * kindsOfCharacters.length
-    );
+    // 条件をランダムでランダム個(1個以上)選択
+    const kindsOfCharactersCount =
+      Math.floor(Math.random() * kindsOfCharacters.length) ?? 1;
     const kindsOfCharactersArr = [...kindsOfCharacters];
     const selectedKindsOfCharacters = kindsOfCharactersArr
-      .sort((_) => Math.random() - 0.5)
+      .sort(() => Math.random() - 0.5)
       .slice(0, kindsOfCharactersCount);
 
     setRegExps([selectedNumerOfCharacters, ...selectedKindsOfCharacters]);
   };
 
   return {
-    numOfQuestions,
     regExps,
     getQuestion,
   };
