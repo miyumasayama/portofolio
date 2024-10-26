@@ -1,7 +1,6 @@
-'use client'
+"use client";
+import { Validation as ValidationPage } from "../pages/validation";
 
 export default function Validation() {
-  return (
-    <>coming soon</>
-  );
+  return <ValidationPage />;
 }
