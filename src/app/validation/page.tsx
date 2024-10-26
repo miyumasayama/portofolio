@@ -1,5 +1,5 @@
 "use client";
-import { Validation as ValidationPage } from "../pages/validation";
+import { Validation as ValidationPage } from "../../components/pages/validation";
 
 export default function Validation() {
   return <ValidationPage />;

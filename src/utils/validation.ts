@@ -1,4 +1,4 @@
-export const maxMinutes = 10;
+export const maxMinutes = 1;
 export const total = 10;
 
 export const formatTimeToPad = (time: number) => {
