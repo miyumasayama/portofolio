@@ -10,7 +10,7 @@ type Props = {
 export const AlertDialog: FC<Props> = ({ title, open, handleClose }) => {
   return (
     <Dialog open={open} onClose={handleClose}>
-      <DialogTitle id="alert-dialog-title">{title}</DialogTitle>
+      <DialogTitle>{title}</DialogTitle>
       <DialogActions>
         <Button color="error" onClick={handleClose}>
           Close

@@ -4,6 +4,7 @@ import { Timer } from "./fragments/timer";
 import { total } from "@/utils/validation";
 import { useTimer } from "@/hooks/useTimer";
 import { AlertDialog } from "@/components/molecules/alertDialog/alertDialog";
+import { NextButton } from "@/components/molecules/nextButton/nextButton";
 
 export const Validation: FC = () => {
   const [isTimeUpOpen, setIsTimeUpOpen] = useState(false);
@@ -20,41 +21,63 @@ export const Validation: FC = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          gap: 1,
+          justifyContent: "space-between",
           p: 12,
           color: "gray",
         }}
       >
-        <Typography fontSize={30} color="gray">
-          🕰️ Validation Time Attack 🕰️
-        </Typography>
         <Box
-          fontSize={20}
-          display="flex"
-          alignItems="center"
-          flexDirection="column"
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 1,
+          }}
         >
-          <Typography>
-            Come up with a password that meets the requirements.
+          <Typography fontSize={30} color="gray">
+            🕰️ Validation Time Attack 🕰️
           </Typography>
-          <Typography>
-            The shorter the time it takes to answer all questions correctly, the
-            better!
-          </Typography>
-          <Typography>total : {total}</Typography>
-        </Box>
-        <Box display="flex" alignItems="center" gap={2} mt={2}>
-          <Timer time={time} />
-          <Button
-            variant="contained"
-            sx={{ backgroundColor: "#2e8b57" }}
-            onClick={handleStartTimer}
-            disabled={isTimerOn}
+          <Box
+            fontSize={20}
+            display="flex"
+            alignItems="center"
+            flexDirection="column"
           >
-            Start
-          </Button>
+            <Typography>
+              Come up with a password that meets the requirements.
+            </Typography>
+            <Typography>
+              The shorter the time it takes to answer all questions correctly,
+              the better!
+            </Typography>
+            <Typography>total : {total}</Typography>
+          </Box>
+          <Box
+            display="flex"
+            alignItems="center"
+            mt={2}
+            flexDirection="column"
+            gap={2}
+          >
+            <Box display="flex" alignItems="center" gap={4}>
+              <Timer time={time} />
+              <Button
+                variant="contained"
+                sx={{ backgroundColor: "#2e8b57" }}
+                onClick={handleStartTimer}
+                disabled={isTimerOn}
+              >
+                Start
+              </Button>
+            </Box>
+            {isTimerOn && (
+              <Box display="flex" alignItems="center" gap={2}>
+                <TextField size="small" />
+                <NextButton />
+              </Box>
+            )}
+          </Box>
         </Box>
-        <TextField />
         <Button color="error" onClick={reset}>
           Quit
         </Button>
