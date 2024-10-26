@@ -5,13 +5,16 @@ import { total } from "@/utils/validation";
 import { useTimer } from "@/hooks/useTimer";
 import { AlertDialog } from "@/components/molecules/alertDialog/alertDialog";
 import { NextButton } from "@/components/molecules/nextButton/nextButton";
+import { useValidationQuiz } from "@/hooks/useValidationQuiz";
+import { useValidate } from "@/hooks/useValidate";
 
 export const Validation: FC = () => {
   const [isTimeUpOpen, setIsTimeUpOpen] = useState(false);
   const { time, reset, isTimerOn, handleStartTimer } = useTimer(() =>
     setIsTimeUpOpen(true)
   );
-
+  const { regExps, numOfQuestions, getQuestion } = useValidationQuiz();
+  const { text, handleChange } = useValidate(regExps);
   return (
     <>
       <Box
@@ -64,7 +67,10 @@ export const Validation: FC = () => {
               <Button
                 variant="contained"
                 sx={{ backgroundColor: "#2e8b57" }}
-                onClick={handleStartTimer}
+                onClick={() => {
+                  handleStartTimer();
+                  getQuestion();
+                }}
                 disabled={isTimerOn}
               >
                 Start
@@ -72,7 +78,11 @@ export const Validation: FC = () => {
             </Box>
             {isTimerOn && (
               <Box display="flex" alignItems="center" gap={2}>
-                <TextField size="small" />
+                <TextField
+                  size="small"
+                  value={text ?? ""}
+                  onChange={(e) => handleChange(e)}
+                />
                 <NextButton />
               </Box>
             )}

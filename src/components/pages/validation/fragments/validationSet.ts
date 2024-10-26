@@ -1,4 +1,6 @@
-export const numberOfCharacters = [
+import { RegExp } from "@/types/validation";
+
+export const numberOfCharacters: RegExp[] = [
   {
     name: "5文字以上",
     regExp: `/^.{5,}$/`,
@@ -17,7 +19,7 @@ export const numberOfCharacters = [
   },
 ];
 
-export const kindsOfCharacters = [
+export const kindsOfCharacters: RegExp[] = [
   {
     name: "小文字が含まれている",
     regExp: `^(?=.*[a-z]).+$`,
