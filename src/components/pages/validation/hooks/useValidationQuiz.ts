@@ -2,15 +2,15 @@ import {
   kindsOfCharacters,
   numberOfCharacters,
 } from "@/components/pages/validation/fragments/validationSet";
-import { RegExp } from "@/types/validation";
-import { useState } from "react";
+import { RegExpType } from "@/types/validation";
+import { useCallback, useState } from "react";
 
 // validationQuizのセットアップ
 
 export const useValidationQuiz = () => {
-  const [regExps, setRegExps] = useState<RegExp[]>([]);
+  const [regExps, setRegExps] = useState<RegExpType[]>([]);
 
-  const getQuestion = () => {
+  const getQuestion = useCallback(() => {
     // 文字数制限をランダムで選択
     const numberOfCharacterIndex = Math.floor(
       Math.random() * numberOfCharacters.length
@@ -27,10 +27,15 @@ export const useValidationQuiz = () => {
       .slice(0, kindsOfCharactersCount);
 
     setRegExps([selectedNumerOfCharacters, ...selectedKindsOfCharacters]);
+  }, []);
+
+  const reset = () => {
+    setRegExps([]);
   };
 
   return {
     regExps,
     getQuestion,
+    reset,
   };
 };
