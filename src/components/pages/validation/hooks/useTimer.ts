@@ -2,7 +2,7 @@ import { Time } from "@/types/validation";
 import { maxMinutes } from "@/utils/validation";
 import { useCallback, useEffect, useState } from "react";
 
-export const useTimer = (handleIsTimeUp: () => void) => {
+export const useTimer = (handleIsTimeUp: () => void, clear: () => void) => {
   const [time, setTime] = useState<Time>({
     seconds: 0,
     minutes: 0,
@@ -17,6 +17,7 @@ export const useTimer = (handleIsTimeUp: () => void) => {
   const handleTimeUp = () => {
     handleIsTimeUp();
     setIsTimerOn(false);
+    clear();
   };
 
   const reset = () => {

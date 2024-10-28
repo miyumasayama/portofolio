@@ -3,7 +3,7 @@ export type Time = {
   minutes: number;
 };
 
-export type RegExp = {
+export type RegExpType = {
   name: string;
-  regExp: string;
+  regExp: RegExp;
 };

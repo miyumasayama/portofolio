@@ -2,19 +2,42 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import { FC, useState } from "react";
 import { Timer } from "./fragments/timer";
 import { total } from "@/utils/validation";
-import { useTimer } from "@/hooks/useTimer";
+import { useTimer } from "./hooks/useTimer";
 import { AlertDialog } from "@/components/molecules/alertDialog/alertDialog";
 import { NextButton } from "@/components/molecules/nextButton/nextButton";
-import { useValidationQuiz } from "@/hooks/useValidationQuiz";
-import { useValidate } from "@/hooks/useValidate";
+import { useValidationQuiz } from "./hooks/useValidationQuiz";
+import { useValidate } from "./hooks/useValidate";
+import { useQuizProgress } from "./hooks/useQuizProgress";
 
 export const Validation: FC = () => {
   const [isTimeUpOpen, setIsTimeUpOpen] = useState(false);
-  const { time, reset, isTimerOn, handleStartTimer } = useTimer(() =>
-    setIsTimeUpOpen(true)
+
+  const { regExps, getQuestion, reset: resetQuiz } = useValidationQuiz();
+
+  const {
+    text,
+    handleChange,
+    handleCheck,
+    reset: resetText,
+  } = useValidate(regExps);
+
+  const { handleClickNext, reset: resetQuestion } = useQuizProgress(
+    handleCheck,
+    getQuestion,
+    resetText
   );
-  const { regExps, getQuestion } = useValidationQuiz();
-  const { text, handleChange } = useValidate(regExps);
+
+  const clear = () => {
+    resetQuiz();
+    resetQuestion();
+    resetText();
+  };
+
+  const { time, reset, isTimerOn, handleStartTimer } = useTimer(
+    () => setIsTimeUpOpen(true),
+    () => clear()
+  );
+
   return (
     <>
       <Box
@@ -77,13 +100,25 @@ export const Validation: FC = () => {
               </Button>
             </Box>
             {isTimerOn && (
-              <Box display="flex" alignItems="center" gap={2}>
-                <TextField
-                  size="small"
-                  value={text ?? ""}
-                  onChange={(e) => handleChange(e)}
-                />
-                <NextButton />
+              <Box display="flex" flexDirection="column" gap={1}>
+                <Box display="flex" alignItems="center" gap={2}>
+                  <TextField
+                    size="small"
+                    value={text ?? ""}
+                    onChange={(e) => handleChange(e)}
+                  />
+                  <NextButton
+                    disabled={!text}
+                    onClick={() => {
+                      handleClickNext();
+                    }}
+                  />
+                </Box>
+                <Box display="flex" flexDirection="column" gap={1}>
+                  {regExps.map((question) => {
+                    return <Typography>{question.name}</Typography>;
+                  })}
+                </Box>
               </Box>
             )}
           </Box>
