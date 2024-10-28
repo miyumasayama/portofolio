@@ -7,9 +7,11 @@ export const useQuizProgress = (
   resetText: () => void
 ) => {
   const [okCount, setOkCount] = useState(0);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const reset = () => {
     setOkCount(0);
+    setIsSuccess(false);
   };
 
   const handleClickNext = () => {
@@ -18,6 +20,7 @@ export const useQuizProgress = (
     if (result === "ok") {
       resetText();
       if (okCount === total - 1) {
+        setIsSuccess(true);
       } else {
         getQuestion();
         setOkCount((pre) => pre + 1);
@@ -27,6 +30,7 @@ export const useQuizProgress = (
   };
 
   return {
+    isSuccess,
     handleClickNext,
     reset,
   };
