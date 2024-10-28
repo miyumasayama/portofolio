@@ -1,13 +1,14 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
 import { FC, useState } from "react";
 import { Timer } from "./fragments/timer";
-import { total } from "@/utils/validation";
+import { isValid, total } from "@/utils/validation";
 import { useTimer } from "./hooks/useTimer";
 import { AlertDialog } from "@/components/molecules/alertDialog/alertDialog";
 import { NextButton } from "@/components/molecules/nextButton/nextButton";
 import { useValidationQuiz } from "./hooks/useValidationQuiz";
 import { useValidate } from "./hooks/useValidate";
 import { useQuizProgress } from "./hooks/useQuizProgress";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 
 export const Validation: FC = () => {
   const [isTimeUpOpen, setIsTimeUpOpen] = useState(false);
@@ -16,6 +17,7 @@ export const Validation: FC = () => {
 
   const {
     text,
+    isError,
     handleChange,
     handleCheck,
     reset: resetText,
@@ -37,6 +39,15 @@ export const Validation: FC = () => {
     () => setIsTimeUpOpen(true),
     () => clear()
   );
+
+  const getColor = (pattern: RegExp) => {
+    if (isValid(text, pattern)) {
+      return "success";
+    } else {
+      if (isError) return "error";
+      return undefined;
+    }
+  };
 
   return (
     <>
@@ -116,7 +127,21 @@ export const Validation: FC = () => {
                 </Box>
                 <Box display="flex" flexDirection="column" gap={1}>
                   {regExps.map((question) => {
-                    return <Typography>{question.name}</Typography>;
+                    return (
+                      <Box
+                        key={question.name}
+                        display="flex"
+                        alignItems="center"
+                        gap={1}
+                      >
+                        <CheckCircleOutlineIcon
+                          color={getColor(question.regExp)}
+                        />
+                        <Typography color={getColor(question.regExp)}>
+                          {question.name}
+                        </Typography>
+                      </Box>
+                    );
                   })}
                 </Box>
               </Box>

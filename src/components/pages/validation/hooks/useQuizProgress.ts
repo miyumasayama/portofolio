@@ -22,6 +22,7 @@ export const useQuizProgress = (
         getQuestion();
         setOkCount((pre) => pre + 1);
       }
+    } else {
     }
   };
 
