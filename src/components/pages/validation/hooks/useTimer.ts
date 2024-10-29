@@ -1,6 +1,6 @@
 import { Time } from "@/types/validation";
 import { maxMinutes } from "@/utils/validation";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const useTimer = (handleIsTimeUp: () => void, clear: () => void) => {
   const timeRef = useRef<Time>({ seconds: 0, minutes: 0 });
