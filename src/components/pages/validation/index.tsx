@@ -9,6 +9,7 @@ import { useValidationQuiz } from "./hooks/useValidationQuiz";
 import { useValidate } from "./hooks/useValidate";
 import { useQuizProgress } from "./hooks/useQuizProgress";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import { SuccessDialog } from "@/components/molecules/successDialog/successDialog";
 
 export const Validation: FC = () => {
   const [isTimeUpOpen, setIsTimeUpOpen] = useState(false);
@@ -23,11 +24,11 @@ export const Validation: FC = () => {
     reset: resetText,
   } = useValidate(regExps);
 
-  const { handleClickNext, reset: resetQuestion } = useQuizProgress(
-    handleCheck,
-    getQuestion,
-    resetText
-  );
+  const {
+    isSuccess,
+    handleClickNext,
+    reset: resetQuestion,
+  } = useQuizProgress(handleCheck, getQuestion, resetText);
 
   const clear = () => {
     resetQuiz();
@@ -156,6 +157,11 @@ export const Validation: FC = () => {
         title={"Oops! Time is over!"}
         open={isTimeUpOpen}
         handleClose={() => setIsTimeUpOpen(false)}
+      />
+      <SuccessDialog
+        title="congraturations!"
+        open={isSuccess}
+        handleClose={() => clear()}
       />
     </>
   );
