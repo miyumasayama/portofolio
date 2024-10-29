@@ -116,7 +116,7 @@ export const Validation: FC = () => {
                 <Box display="flex" alignItems="center" gap={2}>
                   <TextField
                     size="small"
-                    // value={text ?? ""}
+                    value={text ?? ""}
                     onChange={(e) => handleChange(e)}
                   />
                   <NextButton

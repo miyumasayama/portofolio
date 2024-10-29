@@ -1,12 +1,9 @@
 import { Time } from "@/types/validation";
 import { maxMinutes } from "@/utils/validation";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export const useTimer = (handleIsTimeUp: () => void, clear: () => void) => {
-  const [time, setTime] = useState<Time>({
-    seconds: 0,
-    minutes: 0,
-  });
+  const timeRef = useRef<Time>({ seconds: 0, minutes: 0 });
 
   const [isTimerOn, setIsTimerOn] = useState(false);
 
@@ -21,43 +18,39 @@ export const useTimer = (handleIsTimeUp: () => void, clear: () => void) => {
   };
 
   const reset = () => {
-    setTime({
+    timeRef.current = {
       seconds: 0,
       minutes: 0,
-    });
+    };
   };
-
-  const getTime = useCallback(() => {
-    setTime((pre) => {
-      if (pre.minutes >= maxMinutes - 1 && pre.seconds === 59) {
-        handleTimeUp();
-        return {
-          seconds: 0,
-          minutes: 0,
-        };
-      }
-      if (pre.seconds === 59) {
-        return {
-          seconds: 0,
-          minutes: pre.minutes + 1,
-        };
-      } else {
-        return {
-          seconds: pre.seconds + 1,
-          minutes: pre.minutes,
-        };
-      }
-    });
-  }, [handleTimeUp]);
 
   useEffect(() => {
     if (!isTimerOn) return;
-    const interval = setInterval(() => getTime(), 1000);
+    const interval = setInterval(() => {
+      if (
+        timeRef.current.minutes >= maxMinutes - 1 &&
+        timeRef.current.seconds === 59
+      ) {
+        handleTimeUp();
+        clearInterval(interval);
+        return;
+      }
+
+      if (timeRef.current.seconds === 59) {
+        timeRef.current = { seconds: 0, minutes: timeRef.current.minutes + 1 };
+      } else {
+        timeRef.current = {
+          seconds: timeRef.current.seconds + 1,
+          minutes: timeRef.current.minutes,
+        };
+      }
+    }, 1000);
+
     return () => clearInterval(interval);
-  }, [isTimerOn, getTime]);
+  }, [isTimerOn]);
 
   return {
-    time,
+    time: timeRef.current,
     isTimerOn,
     reset,
     handleStartTimer,
