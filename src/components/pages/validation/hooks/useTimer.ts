@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 export const useTimer = (handleIsTimeUp: () => void, clear: () => void) => {
   const timeRef = useRef<Time>({ seconds: 0, minutes: 0 });
+  const [, forceUpdate] = useState({});
 
   const [isTimerOn, setIsTimerOn] = useState(false);
 
@@ -11,17 +12,18 @@ export const useTimer = (handleIsTimeUp: () => void, clear: () => void) => {
     setIsTimerOn(true);
   };
 
-  const handleTimeUp = () => {
-    handleIsTimeUp();
-    setIsTimerOn(false);
-    clear();
-  };
-
   const reset = () => {
     timeRef.current = {
       seconds: 0,
       minutes: 0,
     };
+  };
+
+  const handleTimeUp = () => {
+    handleIsTimeUp();
+    setIsTimerOn(false);
+    clear();
+    reset();
   };
 
   useEffect(() => {
@@ -44,6 +46,7 @@ export const useTimer = (handleIsTimeUp: () => void, clear: () => void) => {
           minutes: timeRef.current.minutes,
         };
       }
+      forceUpdate({});
     }, 1000);
 
     return () => clearInterval(interval);

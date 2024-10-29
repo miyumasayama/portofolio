@@ -12,6 +12,7 @@ import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import { SuccessDialog } from "@/components/molecules/successDialog/successDialog";
 import { BackButton } from "@/components/molecules/backButton/backButton";
 import { useRouter } from "next/navigation";
+import { paths } from "@/utils/navigation";
 
 export const Validation: FC = () => {
   const router = useRouter();
@@ -77,7 +78,7 @@ export const Validation: FC = () => {
           }}
         >
           <Box width="100%">
-            <BackButton onClick={() => router.push("/")} />
+            <BackButton onClick={() => router.push(paths.home)} />
           </Box>
           <Typography fontSize={30} color="gray">
             🕰️ Validation Time Attack 🕰️
