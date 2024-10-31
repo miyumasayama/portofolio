@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Box, CardActionArea, Card as MuiCard } from "@mui/material";
+import { CardActionArea, Card as MuiCard } from "@mui/material";
 
 type Props = {
   children: React.ReactNode;

@@ -1,12 +1,17 @@
-import { FC } from "react";
+import { CSSProperties, FC } from "react";
 
-export const Natsunochikamichi: FC = () => {
+type Props = {
+  style?: CSSProperties;
+};
+
+export const Natsunochikamichi: FC<Props> = ({ style }) => {
   return (
     <svg
       width="60"
       height="59"
       viewBox="0 0 60 59"
       fill="none"
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
