@@ -8,6 +8,7 @@ export const Person: FC = () => {
       height={126 * scale}
       viewBox="0 0 61 126"
       fill="none"
+      style={{ position: "absolute" }}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path

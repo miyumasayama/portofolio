@@ -1,9 +1,8 @@
-import { Costume, Position } from "@/types/costume";
+import { Costume } from "@/types/costume";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 type State = {
   costume?: Costume;
-  position?: Position;
 };
 
 const initialState: State = {};
@@ -14,8 +13,8 @@ const costumeSlice = createSlice({
   reducers: {
     add: (state: State, action: PayloadAction<State | undefined>) => {
       state.costume = action.payload?.costume;
-      state.position = action.payload?.position;
     },
+    // remove: (state: State, action: PayloadAction<State | undefined>) => {},
   },
 });
 

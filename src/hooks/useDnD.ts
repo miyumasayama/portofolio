@@ -1,4 +1,4 @@
-import { useDrag, useDrop, XYCoord } from "react-dnd";
+import { useDrag, useDrop } from "react-dnd";
 import { DndData } from "@/types/costume";
 import { ItemTypes } from "@/utils/rack";
 
@@ -14,7 +14,6 @@ export const useDnD = (props: Props) => {
   const [{ isDragging }, dragRef, preview] = useDrag({
     type: props.itemType,
     item: () => {
-      console.log(props);
       // if (props?.onDragStart) {
       //   props.onDragStart();
       // }
@@ -37,13 +36,11 @@ export const useDnD = (props: Props) => {
   const [{ handlerId }, dropRef] = useDrop({
     accept: [ItemTypes.ITEM],
     collect: (monitor) => {
-      console.log(monitor);
       return {
         handlerId: monitor.getHandlerId(),
       };
     },
-    drop: (monitor) => {
-      console.log(monitor, "a");
+    drop: () => {
       return {};
     },
   });

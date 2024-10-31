@@ -1,9 +1,10 @@
 import { useDnD } from "@/hooks/useDnD";
-import { Box } from "@mui/material";
+import { Box, SxProps } from "@mui/material";
 import { FC, PropsWithChildren, useRef } from "react";
-import { getEmptyImage } from "react-dnd-html5-backend";
 import { DndData } from "@/types/costume";
 import { ItemTypes } from "@/utils/rack";
+import { useAppSelector } from "@/store";
+import { selectCostume } from "@/reducers/costume/selectors";
 
 type DraggableProps = {
   itemType: ItemTypes;
@@ -11,6 +12,7 @@ type DraggableProps = {
   canDrag?: boolean;
   onDragStart?: () => void;
   onDragEnd?: () => void;
+  sx?: SxProps;
 };
 
 const opacityWhenDragging = 0.4;
@@ -22,23 +24,27 @@ export const Draggable: FC<PropsWithChildren<DraggableProps>> = ({
   canDrag,
   onDragStart,
   onDragEnd,
+  sx,
 }) => {
   const ref = useRef<HTMLDivElement>();
-  const { dragRef, dropRef, handlerId, isDragging, preview } = useDnD({
+  const { costume } = useAppSelector(selectCostume);
+  const { dragRef, dropRef, handlerId, isDragging } = useDnD({
     itemType,
     data,
     canDrag,
     onDragStart,
     onDragEnd,
   });
-  // preview(getEmptyImage(), { captureDraggingState: true });
   dragRef(dropRef(ref));
+
   return (
     <Box
       data-handler-id={handlerId}
       ref={ref}
       component="div"
       sx={{
+        ...sx,
+        display: costume && isDragging ? "none" : undefined,
         opacity: isDragging ? opacityWhenDragging : 1,
       }}
     >
