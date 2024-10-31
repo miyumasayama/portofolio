@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { FC } from "react";
+import { FC, useEffect, useRef } from "react";
 import { useDrop } from "react-dnd";
 import { Person } from "../data/person";
 import { ItemTypes } from "@/utils/rack";
@@ -34,10 +34,18 @@ export const Board: FC = () => {
     []
   );
 
+  const boxRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (boxRef.current) {
+      drop(boxRef);
+    }
+  }, [drop]);
+
   return (
     <Box
       component="div"
-      ref={drop}
+      ref={boxRef}
       border="solid #FEEBF6 1px"
       height="100%"
       width="50%"
