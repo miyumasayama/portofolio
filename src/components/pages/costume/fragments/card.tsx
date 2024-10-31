@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { CardActionArea, Card as MuiCard } from "@mui/material";
+import { Box, CardActionArea, Card as MuiCard } from "@mui/material";
 
 type Props = {
   children: React.ReactNode;
@@ -7,7 +7,7 @@ type Props = {
 
 export const Card: FC<Props> = ({ children }) => {
   return (
-    <MuiCard sx={{ cursor: "none", pointerEvents: "none" }} elevation={4}>
+    <MuiCard sx={{ cursor: "pointer", pointerEvents: "none" }} elevation={4}>
       <CardActionArea
         sx={{
           display: "flex",

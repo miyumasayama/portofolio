@@ -44,7 +44,6 @@ export const Draggable: FC<PropsWithChildren<DraggableProps>> = ({
       component="div"
       sx={{
         ...sx,
-        display: costume && isDragging ? "none" : undefined,
         opacity: isDragging ? opacityWhenDragging : 1,
       }}
     >

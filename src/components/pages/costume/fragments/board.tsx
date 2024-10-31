@@ -59,7 +59,7 @@ export const Board: FC = () => {
         <Draggable
           itemType={ItemTypes.ITEM}
           data={{ costume }}
-          sx={{ position: "abosolute", zIndex: 10 }}
+          sx={{ position: "absolute", zIndex: 10, top: "136px" }}
         >
           <SwitchCostume
             name={costume.name}
