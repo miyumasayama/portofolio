@@ -27,7 +27,6 @@ export const Draggable: FC<PropsWithChildren<DraggableProps>> = ({
   sx,
 }) => {
   const ref = useRef<HTMLDivElement>();
-  const { costume } = useAppSelector(selectCostume);
   const { dragRef, dropRef, handlerId, isDragging } = useDnD({
     itemType,
     data,
