@@ -3,8 +3,6 @@ import { Box, SxProps } from "@mui/material";
 import { FC, PropsWithChildren, useRef } from "react";
 import { DndData } from "@/types/costume";
 import { ItemTypes } from "@/utils/rack";
-import { useAppSelector } from "@/store";
-import { selectCostume } from "@/reducers/costume/selectors";
 
 type DraggableProps = {
   itemType: ItemTypes;
