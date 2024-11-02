@@ -1,4 +1,4 @@
-import { Box, Grid2, Typography } from "@mui/material";
+import { Box, Grid2 } from "@mui/material";
 import { FC } from "react";
 import { HomeTitle } from "../../molecules/homeTitle/homeTitle";
 import { Card } from "./fragments/card";

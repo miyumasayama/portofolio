@@ -1,7 +1,5 @@
 import { FC } from "react";
 import {
-  Button,
-  CardActions,
   CardContent,
   CardMedia,
   Card as MuiCard,
