@@ -11,9 +11,13 @@ import { ItemTypes } from "@/utils/rack";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { SwitchCostume } from "./fragments/switchCostume";
+import { useGetCostumesQuery } from "@/reducers/appsApi/injections/costumesApi";
 
 export const Costume: FC = () => {
   const router = useRouter();
+
+  const { data } = useGetCostumesQuery();
+  console.log(data, "あ");
   return (
     <Box
       sx={{
