@@ -7,13 +7,21 @@ type Props = {
 
 export const Card: FC<Props> = ({ children }) => {
   return (
-    <MuiCard sx={{ cursor: "pointer", pointerEvents: "none" }} elevation={4}>
+    <MuiCard
+      sx={{
+        cursor: "pointer",
+        pointerEvents: "none",
+        height: 90,
+      }}
+      elevation={4}
+    >
       <CardActionArea
         sx={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           padding: 1,
+          height: "100%",
         }}
       >
         {children}
