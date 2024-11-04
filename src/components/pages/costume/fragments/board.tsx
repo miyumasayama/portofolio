@@ -63,10 +63,18 @@ export const Board: FC = () => {
         >
           <SwitchCostume
             name={costume.name}
-            style={{
-              width: 61 * 2.5,
-              height: 59 * 2.5,
-            }}
+            // todo リファクタ
+            style={
+              costume.name === "何度LOVESONGの歌詞を読み返しただろう"
+                ? {
+                    width: 60 * 2.5,
+                    height: 75 * 2.5,
+                  }
+                : {
+                    width: 61 * 2.5,
+                    height: 59 * 2.5,
+                  }
+            }
           />
         </Draggable>
       )}
