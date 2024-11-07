@@ -26,7 +26,7 @@ export const Board: FC = () => {
       drop: (item) => {
         dispatch(
           add({
-            costume: item.data.costume,
+            costume: item.data,
           })
         );
       },
@@ -58,10 +58,10 @@ export const Board: FC = () => {
       {costume && (
         <Draggable
           itemType={ItemTypes.ITEM}
-          data={{ costume }}
+          data={costume}
           sx={{ position: "absolute", zIndex: 10, top: "136px" }}
         >
-          <SwitchCostume
+          {/* <SwitchCostume
             name={costume.name}
             // todo リファクタ
             style={
@@ -75,6 +75,13 @@ export const Board: FC = () => {
                     height: 59 * 2.5,
                   }
             }
+          /> */}
+          <img
+            style={{
+              width: costume.width * 2.5,
+              height: costume.height * 2.5,
+            }}
+            src={`https://costumes-miyumasayama.s3.us-east-1.amazonaws.com/${costume.image}`}
           />
         </Draggable>
       )}

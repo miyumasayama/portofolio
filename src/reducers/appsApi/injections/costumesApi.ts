@@ -1,8 +1,10 @@
 import { baseApi } from "../baseApi";
 
-type GetCostumesResponse = {
+export type GetCostumesResponse = {
   name: string;
-  url: string;
+  height: number;
+  width: number;
+  image: string;
 }[];
 
 export const costumesApi = baseApi.injectEndpoints({

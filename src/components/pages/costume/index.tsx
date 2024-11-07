@@ -17,7 +17,7 @@ export const Costume: FC = () => {
   const router = useRouter();
 
   const { data } = useGetCostumesQuery();
-  console.log(data, "あ");
+
   return (
     <Box
       sx={{
@@ -70,12 +70,15 @@ export const Costume: FC = () => {
             p={2}
           >
             <Grid2 container rowSpacing={2} columnSpacing={2} width="100%">
-              {costumes.map((costume) => {
+              {data?.map((costume) => {
                 return (
                   <Grid2 size={4} key={costume.name}>
-                    <Draggable data={{ costume }} itemType={ItemTypes.ITEM}>
+                    <Draggable data={costume} itemType={ItemTypes.ITEM}>
                       <Card>
-                        <SwitchCostume name={costume.name} />
+                        {/* <SwitchCostume name={costume.name} /> */}
+                        <img
+                          src={`https://costumes-miyumasayama.s3.us-east-1.amazonaws.com/${costume.image}`}
+                        />
                       </Card>
                     </Draggable>
                   </Grid2>
