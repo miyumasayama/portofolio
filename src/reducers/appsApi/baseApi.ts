@@ -21,7 +21,7 @@ export type Arrayable<T, K extends keyof T> = {
   [key in keyof T]: key extends K ? NonNullable<T[key]>[] : T[key];
 };
 
-const baseUrl = "http://localhost:8000/";
+const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL;
 const baseQuery = fetchBaseQuery({
   baseUrl,
   paramsSerializer: (params) => {
