@@ -16,7 +16,10 @@ export default function RootLayout({
       <head>
         <meta />
         <link rel="icon" href={`${process.env.NEXT_PUBLIC_URL}//favicon.png`} />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, default-src 'self'; script-src 'self' https://vercel.live;"
+        />
         <title>{`Miyu's Portfolio`}</title>
       </head>
       <body>

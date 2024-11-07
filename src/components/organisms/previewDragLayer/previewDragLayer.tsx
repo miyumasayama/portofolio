@@ -2,8 +2,8 @@ import { Box } from "@mui/material";
 import { FC, useMemo } from "react";
 import { useDragLayer } from "react-dnd";
 import { DndData } from "@/types/costume";
-import { ItemTypes } from "@/utils/rack";
-import { SwitchCostume } from "@/components/pages/costume/fragments/switchCostume";
+// import { ItemTypes } from "@/utils/rack";
+// import { SwitchCostume } from "@/components/pages/costume/fragments/switchCostume";
 
 type Props = {
   scale?: number;
@@ -55,12 +55,12 @@ export const PreviewDragLayer: FC<Props> = () => {
 
 const Preview: FC<{ itemType: string; dndData: DndData }> = ({
   itemType,
-  dndData: { costume },
+  // dndData,
 }) => {
   switch (itemType) {
-    case ItemTypes.ITEM: {
-      return <SwitchCostume name={costume.name} />;
-    }
+    // case ItemTypes.ITEM: {
+    //   // return <SwitchCostume name={dndData} />;
+    // }
 
     default:
       return <></>;

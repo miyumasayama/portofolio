@@ -3,21 +3,19 @@ import { paths } from "@/utils/navigation";
 import { Box, Grid2, Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { FC } from "react";
-import { costumes } from "./utils/costumes";
 import { Card } from "./fragments/card";
 import { Board } from "./fragments/board";
 import { Draggable } from "@/components/organisms/draggable/draggable";
 import { ItemTypes } from "@/utils/rack";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import { SwitchCostume } from "./fragments/switchCostume";
 import { useGetCostumesQuery } from "@/reducers/appsApi/injections/costumesApi";
 
 export const Costume: FC = () => {
   const router = useRouter();
 
   const { data } = useGetCostumesQuery();
-  console.log(data, "あ");
+
   return (
     <Box
       sx={{
@@ -70,12 +68,15 @@ export const Costume: FC = () => {
             p={2}
           >
             <Grid2 container rowSpacing={2} columnSpacing={2} width="100%">
-              {costumes.map((costume) => {
+              {data?.map((costume) => {
                 return (
                   <Grid2 size={4} key={costume.name}>
-                    <Draggable data={{ costume }} itemType={ItemTypes.ITEM}>
+                    <Draggable data={costume} itemType={ItemTypes.ITEM}>
                       <Card>
-                        <SwitchCostume name={costume.name} />
+                        {/* <SwitchCostume name={costume.name} /> */}
+                        <img
+                          src={`https://costumes-miyumasayama.s3.us-east-1.amazonaws.com/${costume.image}`}
+                        />
                       </Card>
                     </Draggable>
                   </Grid2>

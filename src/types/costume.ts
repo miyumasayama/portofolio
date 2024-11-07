@@ -1,7 +1,8 @@
 export type Costume = {
   name: string;
+  height: number;
+  width: number;
+  image: string;
 };
 
-export type DndData = {
-  costume: Costume;
-};
+export type DndData = Costume;
