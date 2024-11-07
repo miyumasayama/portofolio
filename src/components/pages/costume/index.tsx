@@ -3,14 +3,12 @@ import { paths } from "@/utils/navigation";
 import { Box, Grid2, Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { FC } from "react";
-import { costumes } from "./utils/costumes";
 import { Card } from "./fragments/card";
 import { Board } from "./fragments/board";
 import { Draggable } from "@/components/organisms/draggable/draggable";
 import { ItemTypes } from "@/utils/rack";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import { SwitchCostume } from "./fragments/switchCostume";
 import { useGetCostumesQuery } from "@/reducers/appsApi/injections/costumesApi";
 
 export const Costume: FC = () => {

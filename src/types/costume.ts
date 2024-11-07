@@ -1,5 +1,3 @@
-import { GetCostumesResponse } from "@/reducers/appsApi/injections/costumesApi";
-
 export type Costume = {
   name: string;
   height: number;
