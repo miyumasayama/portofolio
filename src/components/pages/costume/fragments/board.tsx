@@ -8,7 +8,7 @@ import { add } from "@/reducers/costume";
 import { useAppDispatch, useAppSelector } from "@/store";
 import { selectCostume } from "@/reducers/costume/selectors";
 import { Draggable } from "@/components/organisms/draggable/draggable";
-import { SwitchCostume } from "./switchCostume";
+// import { SwitchCostume } from "./switchCostume";
 
 type Item = {
   data: DndData;
