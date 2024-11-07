@@ -55,7 +55,7 @@ export const PreviewDragLayer: FC<Props> = () => {
 
 const Preview: FC<{ itemType: string; dndData: DndData }> = ({
   itemType,
-  dndData,
+  // dndData,
 }) => {
   switch (itemType) {
     // case ItemTypes.ITEM: {
