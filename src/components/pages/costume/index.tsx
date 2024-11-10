@@ -73,7 +73,6 @@ export const Costume: FC = () => {
                   <Grid2 size={4} key={costume.name}>
                     <Draggable data={costume} itemType={ItemTypes.ITEM}>
                       <Card>
-                        {/* <SwitchCostume name={costume.name} /> */}
                         <img
                           src={`https://costumes-miyumasayama.s3.us-east-1.amazonaws.com/${costume.image}`}
                         />
