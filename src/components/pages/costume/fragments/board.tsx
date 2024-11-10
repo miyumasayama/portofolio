@@ -8,7 +8,6 @@ import { add } from "@/reducers/costume";
 import { useAppDispatch, useAppSelector } from "@/store";
 import { selectCostume } from "@/reducers/costume/selectors";
 import { Draggable } from "@/components/organisms/draggable/draggable";
-// import { SwitchCostume } from "./switchCostume";
 
 type Item = {
   data: DndData;
@@ -61,21 +60,6 @@ export const Board: FC = () => {
           data={costume}
           sx={{ position: "absolute", zIndex: 10, top: "136px" }}
         >
-          {/* <SwitchCostume
-            name={costume.name}
-            // todo リファクタ
-            style={
-              costume.name === "何度LOVESONGの歌詞を読み返しただろう"
-                ? {
-                    width: 60 * 2.5,
-                    height: 75 * 2.5,
-                  }
-                : {
-                    width: 61 * 2.5,
-                    height: 59 * 2.5,
-                  }
-            }
-          /> */}
           <img
             style={{
               width: costume.width * 2.5,
