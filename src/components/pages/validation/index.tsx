@@ -13,6 +13,7 @@ import { SuccessDialog } from "@/components/molecules/successDialog/successDialo
 import { BackButton } from "@/components/molecules/backButton/backButton";
 import { useRouter } from "next/navigation";
 import { paths } from "@/utils/navigation";
+import { SpError } from "@/components/organisms/spError/spError";
 
 export const Validation: FC = () => {
   const router = useRouter();
@@ -71,7 +72,7 @@ export const Validation: FC = () => {
         <Box
           width="100%"
           sx={{
-            display: "flex",
+            display: { xs: "none", sm: "flex", md: "flex", lg: "flex" },
             flexDirection: "column",
             alignItems: "center",
             gap: 1,
@@ -160,9 +161,7 @@ export const Validation: FC = () => {
             )}
           </Box>
         </Box>
-        {/* {isTimerOn && (
-          
-        )} */}
+        <SpError />
       </Box>
       <AlertDialog
         title={"Oops! Time is over!"}
