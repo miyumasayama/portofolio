@@ -10,6 +10,7 @@ import { ItemTypes } from "@/utils/rack";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { useGetCostumesQuery } from "@/reducers/appsApi/injections/costumesApi";
+import { SpError } from "@/components/organisms/spError/spError";
 
 export const Costume: FC = () => {
   const router = useRouter();
@@ -34,7 +35,7 @@ export const Costume: FC = () => {
       <Box
         width="100%"
         sx={{
-          display: "flex",
+          display: { xs: "none", sm: "flex", md: "flex", lg: "flex" },
           flexDirection: "column",
           alignItems: "center",
           gap: 1,
@@ -57,7 +58,13 @@ export const Costume: FC = () => {
         </Box>
       </Box>
       <DndProvider backend={HTML5Backend}>
-        <Box display="flex" width="100%" height="100%" gap={1}>
+        <Box
+          display="flex"
+          width="100%"
+          height="100%"
+          gap={1}
+          sx={{ display: { xs: "none", sm: "flex", md: "flex", lg: "flex" } }}
+        >
           <Board />
           <Box
             border="solid white 1px"
@@ -85,6 +92,7 @@ export const Costume: FC = () => {
           </Box>
         </Box>
       </DndProvider>
+      <SpError />
     </Box>
   );
 };
