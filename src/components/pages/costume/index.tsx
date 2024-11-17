@@ -8,7 +8,7 @@ import { Board } from "./fragments/board";
 import { Draggable } from "@/components/organisms/draggable/draggable";
 import { ItemTypes } from "@/utils/rack";
 import { DndProvider } from "react-dnd";
-import { isMobile } from "react-device-detect";
+import { isMobile, isTablet } from "react-device-detect";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { TouchBackend } from "react-dnd-touch-backend";
 import { useGetCostumesQuery } from "@/reducers/appsApi/injections/costumesApi";
@@ -59,13 +59,16 @@ export const Costume: FC = () => {
           <Typography>put on it to your doll by drag and drop</Typography>
         </Box>
       </Box>
-      <DndProvider backend={isMobile ? TouchBackend : HTML5Backend}>
+      <DndProvider backend={isMobile || isTablet ? TouchBackend : HTML5Backend}>
         <Box
-          display="flex"
           width="100%"
           height="100%"
           gap={1}
-          sx={{ display: { xs: "none", sm: "flex", md: "flex", lg: "flex" } }}
+          display={
+            isMobile || isTablet
+              ? "none"
+              : { xs: "none", sm: "flex", md: "flex", lg: "flex" }
+          }
         >
           <Board />
           <Box
