@@ -14,6 +14,7 @@ import { BackButton } from "@/components/molecules/backButton/backButton";
 import { useRouter } from "next/navigation";
 import { paths } from "@/utils/navigation";
 import { SpError } from "@/components/organisms/spError/spError";
+import { isMobile, isTablet } from "react-device-detect";
 
 export const Validation: FC = () => {
   const router = useRouter();
@@ -72,11 +73,15 @@ export const Validation: FC = () => {
         <Box
           width="100%"
           sx={{
-            display: { xs: "none", sm: "flex", md: "flex", lg: "flex" },
             flexDirection: "column",
             alignItems: "center",
             gap: 1,
           }}
+          display={
+            isMobile || isTablet
+              ? "none"
+              : { xs: "none", sm: "flex", md: "flex", lg: "flex" }
+          }
         >
           <Box width="100%">
             <BackButton onClick={() => router.push(paths.home)} />
