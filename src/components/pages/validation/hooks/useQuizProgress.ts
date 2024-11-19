@@ -33,5 +33,6 @@ export const useQuizProgress = (
     isSuccess,
     handleClickNext,
     reset,
+    okCount,
   };
 };

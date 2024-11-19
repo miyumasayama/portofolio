@@ -57,6 +57,5 @@ export const useTimer = (handleIsTimeUp: () => void, clear: () => void) => {
     isTimerOn,
     reset,
     handleStartTimer,
-    handleTimeUp,
   };
 };
