@@ -34,6 +34,7 @@ export const Validation: FC = () => {
     isSuccess,
     handleClickNext,
     reset: resetQuestion,
+    okCount,
   } = useQuizProgress(handleCheck, getQuestion, resetText);
 
   const clear = () => {
@@ -127,6 +128,9 @@ export const Validation: FC = () => {
             </Box>
             {isTimerOn && (
               <Box display="flex" flexDirection="column" gap={1}>
+                <Typography>
+                  {okCount} / {total}
+                </Typography>
                 <Box display="flex" alignItems="center" gap={2}>
                   <TextField
                     size="small"
@@ -176,7 +180,9 @@ export const Validation: FC = () => {
       <SuccessDialog
         title="congraturations!"
         open={isSuccess}
-        handleClose={() => clear()}
+        handleClose={() => {
+          clear();
+        }}
       />
     </>
   );
