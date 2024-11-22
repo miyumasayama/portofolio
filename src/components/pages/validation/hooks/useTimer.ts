@@ -19,8 +19,7 @@ export const useTimer = (handleIsTimeUp: () => void, clear: () => void) => {
     };
   };
 
-  const handleTimeUp = () => {
-    handleIsTimeUp();
+  const handleReset = () => {
     setIsTimerOn(false);
     clear();
     reset();
@@ -33,7 +32,8 @@ export const useTimer = (handleIsTimeUp: () => void, clear: () => void) => {
         timeRef.current.minutes >= maxMinutes - 1 &&
         timeRef.current.seconds === 59
       ) {
-        handleTimeUp();
+        handleReset();
+        handleIsTimeUp();
         clearInterval(interval);
         return;
       }
@@ -57,5 +57,6 @@ export const useTimer = (handleIsTimeUp: () => void, clear: () => void) => {
     isTimerOn,
     reset,
     handleStartTimer,
+    handleReset,
   };
 };

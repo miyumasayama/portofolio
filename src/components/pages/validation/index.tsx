@@ -30,23 +30,23 @@ export const Validation: FC = () => {
     reset: resetText,
   } = useValidate(regExps);
 
-  const {
-    isSuccess,
-    handleClickNext,
-    reset: resetQuestion,
-    okCount,
-  } = useQuizProgress(handleCheck, getQuestion, resetText);
-
   const clear = () => {
     resetQuiz();
     resetQuestion();
     resetText();
   };
 
-  const { time, reset, isTimerOn, handleStartTimer } = useTimer(
+  const { time, reset, isTimerOn, handleStartTimer, handleReset } = useTimer(
     () => setIsTimeUpOpen(true),
     () => clear()
   );
+
+  const {
+    isSuccess,
+    handleClickNext,
+    reset: resetQuestion,
+    okCount,
+  } = useQuizProgress(handleCheck, getQuestion, resetText, handleReset);
 
   const getColor = (pattern: RegExp) => {
     if (isValid(text, pattern)) {
@@ -181,7 +181,7 @@ export const Validation: FC = () => {
         title="congraturations!"
         open={isSuccess}
         handleClose={() => {
-          clear();
+          handleReset();
         }}
       />
     </>
