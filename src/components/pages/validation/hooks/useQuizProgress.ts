@@ -21,8 +21,8 @@ export const useQuizProgress = (
     if (result === "ok") {
       resetText();
       if (okCount === total - 1) {
-        setIsSuccess(true);
         handleSucceed();
+        setIsSuccess(true);
       } else {
         getQuestion();
         setOkCount((pre) => pre + 1);
