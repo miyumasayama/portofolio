@@ -140,7 +140,7 @@ export const Validation: FC = () => {
                   <NextButton
                     disabled={!text}
                     onClick={() => {
-                      handleClickNext();
+                      handleClickNext(text);
                     }}
                   />
                 </Box>

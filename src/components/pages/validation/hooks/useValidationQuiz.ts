@@ -1,6 +1,7 @@
 import {
   kindsOfCharacters,
   numberOfCharacters,
+  prviousCharacters,
 } from "@/components/pages/validation/fragments/validationSet";
 import { RegExpType } from "@/types/validation";
 import { useCallback, useState } from "react";
@@ -10,7 +11,14 @@ import { useCallback, useState } from "react";
 export const useValidationQuiz = () => {
   const [regExps, setRegExps] = useState<RegExpType[]>([]);
 
-  const getQuestion = useCallback(() => {
+  const getQuestion = useCallback((prevText?: string) => {
+    if (!!prevText) {
+      // 10分の1の確率で前回と同じパスワードを入力させる
+      if (Math.random() < 0.1) {
+        setRegExps(prviousCharacters(prevText));
+        return;
+      }
+    }
     // 文字数制限をランダムで選択
     const numberOfCharacterIndex = Math.floor(
       Math.random() * numberOfCharacters.length

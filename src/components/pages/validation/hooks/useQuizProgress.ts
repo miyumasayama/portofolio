@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export const useQuizProgress = (
   handleCheck: () => "ok" | "failed",
-  getQuestion: () => void,
+  getQuestion: (prevText?: string) => void,
   resetText: () => void,
   handleSucceed: () => void
 ) => {
@@ -15,7 +15,7 @@ export const useQuizProgress = (
     setIsSuccess(false);
   };
 
-  const handleClickNext = () => {
+  const handleClickNext = (text: string) => {
     const result = handleCheck();
 
     if (result === "ok") {
@@ -24,7 +24,7 @@ export const useQuizProgress = (
         handleSucceed();
         setIsSuccess(true);
       } else {
-        getQuestion();
+        getQuestion(text);
         setOkCount((pre) => pre + 1);
       }
     } else {
