@@ -37,3 +37,12 @@ export const kindsOfCharacters: RegExpType[] = [
     regExp: /^(?=.*[!@#$%^&*(),.?":{}|<>]).+$/,
   },
 ];
+
+export const prviousCharacters = (prev: string): RegExpType[] => {
+  return [
+    {
+      name: "前回入力したパスワードと同じ",
+      regExp: new RegExp(`^${prev}$`),
+    },
+  ];
+};
