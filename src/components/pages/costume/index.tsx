@@ -1,8 +1,8 @@
 import { BackButton } from "@/components/molecules/backButton/backButton";
 import { paths } from "@/utils/navigation";
-import { Box, Grid2, Typography } from "@mui/material";
+import { Box, Grid2, Tab, Tabs, Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Card } from "./fragments/card";
 import { Board } from "./fragments/board";
 import { Draggable } from "@/components/organisms/draggable/draggable";
@@ -18,6 +18,8 @@ export const Costume: FC = () => {
   const router = useRouter();
 
   const { data } = useGetCostumesQuery();
+
+  const [tab, setTab] = useState<"dress">("dress");
 
   return (
     <Box
@@ -77,9 +79,25 @@ export const Costume: FC = () => {
             width="50%"
             sx={{ backgroundColor: "white" }}
             borderRadius="10px"
-            p={2}
           >
-            <Grid2 container rowSpacing={2} columnSpacing={2} width="100%">
+            <Box width="100%" height="40px">
+              <Tabs value={tab}>
+                <Tab
+                  label="dress"
+                  value={tab}
+                  sx={{
+                    color: tab === "dress" ? "primary" : "",
+                  }}
+                />
+              </Tabs>
+            </Box>
+            <Grid2
+              container
+              rowSpacing={2}
+              columnSpacing={2}
+              width="100%"
+              p={2}
+            >
               {data?.map((costume) => {
                 return (
                   <Grid2 size={4} key={costume.name}>
