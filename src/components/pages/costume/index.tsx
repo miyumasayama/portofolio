@@ -17,7 +17,7 @@ export const Costume: FC = () => {
 
   const { data } = useGetCostumesQuery();
 
-  const [tab, setTab] = useState<"dress">("dress");
+  const [tab] = useState<"dress">("dress");
 
   return (
     <Box
