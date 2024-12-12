@@ -34,4 +34,27 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
 # portofolio
+
+# ファイル構成について
+
+- 全てのページは app/配下におく
+  - ルートは page.tsx
+  - それ以外のページは、ページ名/page.tsx
+  - page が呼ぶのは,components/pages の該当ファイルのみ
+- components/pages
+  - API との接続やロジックはここで持つ
+  - それぞれの page 内でのみ使用する data や utils はこの中に置く
+- components/organisms
+  - ロジックを持つ共通コンポーネント
+- components/molecues
+  - ロジックを持たない共通コンポーネント
+- fragments
+  - そのファイル内でのみ使われるコンポーネント
+  - 別のファイルでも使われる場合は organisms か molecules に移動する
+- hooks
+  - 複数 page に渡る hooks を置く
+- utils
+  - 複数箇所で使われる定数や関数など。
+  - 関数に関しては必ずテストを書く
