@@ -2,38 +2,38 @@ import { RegExpType } from "@/types/validation";
 
 export const numberOfCharacters: RegExpType[] = [
   {
-    name: "5文字以上",
+    name: "More than 5 characters",
     regExp: /^.{5,}$/,
   },
   {
-    name: "6文字以上",
+    name: "More than 6 characters",
     regExp: /^.{6,}$/,
   },
   {
-    name: "7文字以上",
+    name: "More than 7 characters",
     regExp: /^.{7,}$/,
   },
   {
-    name: "8文字以上",
+    name: "More than 8 characters",
     regExp: /^.{8,}$/,
   },
 ];
 
 export const kindsOfCharacters: RegExpType[] = [
   {
-    name: "小文字が含まれている",
+    name: "Contains some lowercase character",
     regExp: /^(?=.*[a-z]).+$/,
   },
   {
-    name: "大文字が含まれている",
+    name: "Contains some uppercase character",
     regExp: /^(?=.*[A-Z]).+$/,
   },
   {
-    name: "数字が含まれている",
+    name: "Contains some number",
     regExp: /^(?=.*\d).+$/,
   },
   {
-    name: "特殊文字が含まれている",
+    name: "Contains some special character",
     regExp: /^(?=.*[!@#$%^&*(),.?":{}|<>]).+$/,
   },
 ];
