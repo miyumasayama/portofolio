@@ -103,7 +103,6 @@ export const Validation: FC = () => {
               The shorter the time it takes to answer all questions correctly,
               the better!
             </Typography>
-            <Typography>total : {total}</Typography>
           </Box>
           <Box
             display="flex"
@@ -112,6 +111,7 @@ export const Validation: FC = () => {
             flexDirection="column"
             gap={2}
           >
+            <Typography>total : {total}</Typography>
             <Box display="flex" alignItems="center" gap={4}>
               <Timer time={time} />
               <Button
