@@ -136,6 +136,9 @@ export const Validation: FC = () => {
                     size="small"
                     value={text ?? ""}
                     onChange={(e) => handleChange(e)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") handleClickNext();
+                    }}
                   />
                   <NextButton
                     disabled={!text}
