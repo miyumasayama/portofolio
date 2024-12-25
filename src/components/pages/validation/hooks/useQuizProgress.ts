@@ -28,6 +28,7 @@ export const useQuizProgress = (
         setOkCount((pre) => pre + 1);
       }
     } else {
+      return;
     }
   };
 
